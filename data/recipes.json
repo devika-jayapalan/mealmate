@@ -1,1 +1,58 @@
-
+[
+  {
+    "name": "Aloo Paratha",
+    "ingredients": ["potato", "wheat flour", "salt", "oil"],
+    "meal_type": "breakfast",
+    "region": "NorthIn",
+    "instructions": ["Boil and mash potatoes. Mix with spices. Stuff into dough made of wheat flour, salt and oil then and roll. Cook on tawa with oil."]
+  },
+  {
+    "name": "Onion Pakora",
+    "ingredients": ["onion", "gram flour", "salt", "oil"],
+    "meal_type": "snack",
+    "region": "NorthIn",
+    "instructions": ["Slice onions, mix with besan and spices. Deep fry till golden."]
+  },
+  {
+    "name": "Fruit Salad",
+    "ingredients": ["apple", "banana", "milk", "sugar"],
+    "meal_type": "snack",
+    "region": "General",
+    "instructions": ["Chop fruits and mix with chilled milk and sugar."]
+  },
+  {
+    "name": "Idli and Chutney",
+    "ingredients": ["rice", "urad dal", "salt","coconut","Green chilli"],
+    "meal_type": "breakfast",
+    "region": "SouthIn",
+    "instructions": ["Mix the idli flour, water, and sour curd well."," Add salt to the batter once it has risen, and mix"," After greasing the idli stand with oil, ladle the batter into the idli molds."," Add 1/2 cup of water to the stand; bring to a boil. Close the cover after inserting the idli stand. Before turning off the gas, wait for 8 to 10 minutes for the steam to accumulate.","In a blender add 3/4 cup of grated coconut, a small piece of ginger and 1 or 2 green chilli then blend. Now you have your chutney.","Take the idilies off the steamer"]
+  },
+  {
+    "name": "Chapati and Dal Curry",
+    "ingredients": ["wheat flour", "salt", "oil", "dal","onion","green chilli","chilli powder","turmeric powder","coriander leaves"],
+    "meal_type": "lunch",
+    "region": "NorthIn",
+    "instructions": ["soak the dal in water for a few minutes.","Mix wheat flour with salt, a teaspoon of oil and water then knead. Make small balls of the dough, flatten them and cook on tawa flipping them halfway through."," Now that you have made the chapatis, chop up the onions, green chilli and coriander leaves and heat them on a pan with a tablespoon of oil.", " Add turmeric powder, red chilli powder and some water. add the soaked, strained dals and mix until most of the water has evaporated."," Enjoy"]
+  },
+  {
+    "name": "Puttum Kadalayum",
+    "ingredients": ["coconut", "rice powder", "salt", "chana","onion","oil","red chilli powder","turmeric powder","tomato"],
+    "meal_type": "breakfast",
+    "region": "SouthIn",
+    "instructions": ["Soak the dry kadala in water for 3 or 4 hours"," Mix grated coconut with rice powder, salt and water then pour into the puttu steaming vessel and steam it for 8 mins. Now, you have puttu.","For the kadala curry, add the chopped onions, tomatos and saute them with oil. Then add in the chilli and turmeric powders"," Add in the soaked and strained chana, add water and stir until a lot of the water has boiled off."," Enjoy"]
+  },
+  {
+    "name": "Upma and Vegetable Korma",
+    "ingredients": ["rava","ghee", "mustard seeds", "onions", "green chilli","salt","carrot","curry leaves","beans","potato","coconut","garam masala"],
+    "meal_type": "breakfast",
+    "region": "SouthIn",
+    "instructions": ["Roast the rava on a pan with ghee."," On another pan, heat oil and put some mustard seeds, onion, curry leaves and carrot and stir. Afterwards add some water and some salt. wait til boil."," pour the roasted rava in and mix thoughly to avoid lumps. The upma is complete."," For the korma cut all the vegetables into small pieces put them in a pan in a pressure cooker with water and cook them."," In a mixer add coconut shavings, 4 green chilies, small piece of ginger and 3 cloves of garlic with garam masala and salt and blend them."," Add the blended ingredients into the cooker and cook them for some minutes.", " In a pan, add oil, curry leaves and mustard seeds and boil tem with the korma. Enjoy "]
+  },
+  {
+    "name": "Rice and Rajma",
+    "ingredients": ["rice", "rajma", "salt", "onion","chilli powder","turmeric powder","coriander powder","tomato"],
+    "meal_type": "dinner",
+    "region": "NorthIn",
+    "instructions": ["Boil the rice grains with water and salt."," Soak the rajma for approx. 6 hours."," Afterwards, cook the rajma in the pressure cooker with salt and water and some chopped onions and green chilli."," In the pan heat the oil then add chopped onions, tomato, chilli powder, turmuric power, coriander powder and saute. Add the contents of the pressure cooker and cook them until the water has reduced greatly. Enjoy. "]
+  }
+]

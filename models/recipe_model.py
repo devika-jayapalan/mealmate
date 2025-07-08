@@ -11,8 +11,8 @@ def match_recipes_from_json(available_ingredients):
     matches = []
 
     for recipe in recipes:
-        required = set(i.lower() for i in recipe["ingredients"])
-        if required.issubset(available_set):
+        recipe_ingredients = set(i.lower() for i in recipe["ingredients"])
+        if recipe_ingredients.issubset(available_set):
             matches.append(recipe)
     
     return matches

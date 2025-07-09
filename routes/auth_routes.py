@@ -1,27 +1,22 @@
-from flask import Blueprint, request, render_template, redirect, session, current_app
-from bson.objectid import ObjectId
+from flask import Blueprint, render_template, request, session, redirect, current_app
+from models.user_model import get_user_by_email, create_user
 
 auth_bp = Blueprint('auth', __name__)
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        name = request.form.get('name')
-        email = request.form.get('email')
+        name = request.form['name']
+        email = request.form['email']
+
         mongo = current_app.mongo
 
-        # Check if user exists
-        user = mongo.db.users.find_one({"email": "email"})
+        user = get_user_by_email(mongo, email)
         if not user:
-            # Create new user
-            user_id = mongo.db.users.insert_one({
-                "name": name,
-                "email": email,
-            }).inserted_id
+            user_id = create_user(mongo, name, email)
         else:
             user_id = user['_id']
 
-        # Store user ID in session
         session['user_id'] = str(user_id)
         return redirect('/ingredients')
 

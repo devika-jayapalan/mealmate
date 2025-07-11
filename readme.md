@@ -1,1 +1,1 @@
-#HELLO
+#MealMate - Your Smart Indian Meal Planner! 👩‍🍳

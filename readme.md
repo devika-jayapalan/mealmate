@@ -1,4 +1,4 @@
-#MealMate - Your Smart Indian Meal Planner! 👩‍🍳
+# MealMate - Your Smart Indian Meal Planner! 👩‍🍳
 
 >*Smart cooking starts with what you have*
 

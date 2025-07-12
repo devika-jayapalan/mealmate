@@ -1,14 +1,14 @@
-# MealMate - Your Smart Indian Meal Planner! 👩‍🍳
+# MealMate - Your Smart Indian Meal Planner! 👩‍🍳🍲
 
 >*Smart cooking starts with what you have*
 
-A website that helps Indian women decide daily meals
+A website that helps Indian women decide daily meals 🥘
 
-User inputs ingredients, Website suggests meals that can be prepared. Also keeps track of recipes used so as to avoid repetition within a week.
+User inputs ingredients, Website suggests meals that can be prepared. Also keeps track of recipes used so as to avoid repetition within a week. 📝 
 
 ## Problem Statement
 
-Many Indian women struggle with daily meal planning, especially when juggling work, family, and health. MealMate simplifies this process by suggesting meals based on available ingredients and prevents repetition—making everyday cooking less stressful and more efficient.
+Many Indian women struggle with daily meal planning, especially when juggling work, family, and health. MealMate simplifies this process by suggesting meals based on available ingredients and prevents repetition—making everyday cooking less stressful and more efficient. 💁🏻‍♀️
 
 
 🌐 [Website Live Demo](https://meal-mate-viun.onrender.com/)
@@ -22,7 +22,7 @@ Many Indian women struggle with daily meal planning, especially when juggling wo
 - 📦 Recipes categorized by meal type (breakfast, lunch, dinner, snack)
 
 
-##Tech Stack
+## Tech Stack
 
 -Frontend: HTML, CSS, JavaScript
 -Backend: Written in Python, Flask 

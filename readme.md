@@ -3,6 +3,7 @@
 >*Smart cooking starts with what you have*
 
 A website that helps Indian women decide daily meals 🥘
+
 User inputs ingredients, Website suggests meals that can be prepared. Also keeps track of recipes used so as to avoid repetition within a week. 📝 
 <img width="1120" height="820" alt="Logo" src="https://github.com/user-attachments/assets/085550a4-d1e1-478c-a4f3-b202d9c4e141" />
 

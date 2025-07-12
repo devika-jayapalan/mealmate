@@ -22,7 +22,7 @@
   },
   {
     "name": "Idli and Chutney",
-    "ingredients": ["rice", "urad dal", "salt","coconut","Green chilli"],
+    "ingredients": ["rice", "urad dal", "salt","coconut","green chilli"],
     "meal_type": "breakfast",
     "region": "SouthIn",
     "instructions": ["Mix the idli flour, water, and sour curd well."," Add salt to the batter once it has risen, and mix"," After greasing the idli stand with oil, ladle the batter into the idli molds."," Add 1/2 cup of water to the stand; bring to a boil. Close the cover after inserting the idli stand. Before turning off the gas, wait for 8 to 10 minutes for the steam to accumulate.","In a blender add 3/4 cup of grated coconut, a small piece of ginger and 1 or 2 green chilli then blend. Now you have your chutney.","Take the idilies off the steamer"]
@@ -43,7 +43,7 @@
   },
   {
     "name": "Upma and Vegetable Korma",
-    "ingredients": ["rava","ghee", "mustard seeds", "onions", "green chilli","salt","carrot","curry leaves","beans","potato","coconut","garam masala"],
+    "ingredients": ["rava","ghee", "mustard seeds", "onion", "green chilli","salt","carrot","curry leaves","beans","potato","coconut","garam masala"],
     "meal_type": "breakfast",
     "region": "SouthIn",
     "instructions": ["Roast the rava on a pan with ghee."," On another pan, heat oil and put some mustard seeds, onion, curry leaves and carrot and stir. Afterwards add some water and some salt. wait til boil."," pour the roasted rava in and mix thoughly to avoid lumps. The upma is complete."," For the korma cut all the vegetables into small pieces put them in a pan in a pressure cooker with water and cook them."," In a mixer add coconut shavings, 4 green chilies, small piece of ginger and 3 cloves of garlic with garam masala and salt and blend them."," Add the blended ingredients into the cooker and cook them for some minutes.", " In a pan, add oil, curry leaves and mustard seeds and boil tem with the korma. Enjoy "]
@@ -54,5 +54,95 @@
     "meal_type": "dinner",
     "region": "NorthIn",
     "instructions": ["Boil the rice grains with water and salt."," Soak the rajma for approx. 6 hours."," Afterwards, cook the rajma in the pressure cooker with salt and water and some chopped onions and green chilli."," In the pan heat the oil then add chopped onions, tomato, chilli powder, turmuric power, coriander powder and saute. Add the contents of the pressure cooker and cook them until the water has reduced greatly. Enjoy. "]
+  },
+  {
+    "name": "Chole Bhature",
+    "ingredients": ["maida","rava","ghee","salt","sugar", "wheat flour", "baking soda", "curd","chickpeas","turmeric powder","red chilli powder","coriander powder","hing","green chilli","cumin","cloves","cinnamon","black pepper","onion","tomato","ginger","garlic","oil"],
+    "meal_type": "breakfast",
+    "region": "NorthIn",
+    "instructions": ["make the dough using maida, rava, ghee, sugar, salt, a pinch of baking soda and curd with water. Flatten the dough balls and fry them to get the bhature", " The chickpeas have to be soaked in water for 6 to 7 hours before being cooked inside a pressure cooker with some salt. Drain the water and keep aside.","In a blender blend together tomatoes, onoins, ginger, garlic, and chilli"," On a pan add all the spices and roast them for a minute."," Add the blended paste, saute for a few more minutes and add the dry spice powders with one green chilli"," Add the chana then continue sitirring for a few minutes.","Enjoy"]
+  },
+  {
+    "name": "Kichidi",
+    "ingredients": ["ghee", "moong dal", "cumin", "ginger","black pepper","turmeric powder","hing","rice","onion","tomato","carrot","spinach","green chilli","red chilli powder"],
+    "meal_type": "lunch",
+    "region": "NorthIn",
+    "instructions": ["Soak rice and moong dal and set aside"," In a pressure cooker heat ghee the add cumin, a pinch of hing, a piece of ginger, chopped onions, one green chilli and stir without burning."," Then add chopped tomato, turmuric powder, salt and the other vegetables"," Add the dal now and let it fry, then add the strained rice with some water"," Close the lid of the pressure cooker for some time. after wards the kichidi is ready."]
+  },
+  {
+    "name": "Chapati and Paneer Butter Masala",
+    "ingredients": ["wheat flour", "paneer", "tomato", "butter", "cream", "cumin","coriander powder","garam masala","red chilli powder","turmeric powder"],
+    "meal_type": "dinner",
+    "region": "NorthIn",
+    "instructions": [
+      "Make dough from wheat flour and water. Roll into chapatis and cook on tawa.",
+      "For paneer masala, blend tomatoes into a puree, cook with butter and spices.",
+      "Add cream and paneer cubes. Simmer and serve with chapatis."
+    ]
+  },
+  {
+    "name": "Vegetable Pulao",
+    "ingredients": ["rice", "carrot", "beans", "peas", "onion", "red chilli powder", "ghee","turmeric powder"],
+    "meal_type": "lunch",
+    "region": "General",
+    "instructions": [
+      "Sauté spices in ghee, add sliced onions and vegetables.",
+      "Add rice and water. Cook until rice is fluffy and vegetables are soft."
+    ]
+  },
+  {
+    "name": "Rasam and Rice",
+    "ingredients": ["tomato", "tamarind", "pepper", "garlic", "cumin", "mustard seeds", "curry leaves"],
+    "meal_type": "dinner",
+    "region": "SouthIn",
+    "instructions": [
+    "Boil tamarind water with tomato, garlic, pepper, cumin and salt.",
+    "Temper mustard seeds and curry leaves, pour into rasam.",
+    "Serve hot with rice."
+  ]
+  },
+  {
+    "name": "Masala Dosa",
+    "ingredients": ["rice", "urad dal", "potato", "onion", "mustard seeds", "curry leaves", "turmeric"],
+    "meal_type": "dinner",
+    "region": "SouthIn",
+    "instructions": [
+      "Make dosa batter from soaked rice and urad dal.",
+      "Prepare potato filling with mustard seeds, curry leaves, onion and turmeric.",
+      "Pour batter on tawa, add filling, fold and serve."
+    ]
+  },
+  {
+    "name": "Vegetable Sandwich",
+    "ingredients": ["bread", "cucumber", "tomato", "onion", "butter", "chutney", "salt", "pepper"],
+    "meal_type": "snack",
+    "region": "General",
+    "instructions": [
+      "Spread butter and chutney on bread slices.",
+      "Layer sliced vegetables with salt and pepper.",
+      "Close sandwich and optionally grill or toast."
+    ]
+  },
+  {
+    "name": "French Toast",
+    "ingredients": ["bread", "egg", "milk", "sugar", "cinnamon", "butter"],
+    "meal_type": "breakfast",
+    "region": "General",
+    "instructions": [
+      "Whisk egg, milk, sugar and cinnamon.",
+      "Dip bread slices and cook on pan with butter until golden.",
+      "Serve hot."
+    ]
+  },
+  {
+    "name": "Macaroni Masala",
+    "ingredients": ["macaroni", "onion", "tomato", "garam masala", "chilli powder", "oil"],
+    "meal_type": "snack",
+    "region": "General",
+    "instructions": [
+      "Boil macaroni and keep aside.",
+      "Sauté onion and tomato in oil with spices.",
+      "Add macaroni, mix well, and serve hot."
+    ]
   }
 ]

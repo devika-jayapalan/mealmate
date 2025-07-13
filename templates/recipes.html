@@ -4,7 +4,7 @@
     <title>Recipe Suggestion</title>
     <style>
         body { font-family: sans-serif; margin: 20px; }
-        .recipe { border: 1px solid #ccc; padding: 10px; }
+        .recipe { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
         .recipe h3 { margin: 0; }
     </style>
 </head>
@@ -24,9 +24,20 @@
                     <li>{{ step }}</li>
                 {% endfor %}
             </ul>
+
+            <form method="POST" action="/select_recipe">
+                <input type="hidden" name="recipe_name" value="{{ recipe.name }}">
+                <button type="submit">Choose this recipe</button>
+            </form>
         </div>
+
     {% else %}
         <p>No matching recipes found.</p>
     {% endif %}
+
+    <form action="/next_recipe" method="get">
+        <button type="submit">See Next Recipe</button>
+    </form>
+    <a href="/">Go back to home</a>
 </body>
 </html>

@@ -21,3 +21,9 @@ def login():
         return redirect('/ingredients')
 
     return render_template('login.html')
+
+@auth_bp.route("/logout")
+def logout():
+    session.clear()  # Clears user_id and other data
+    return redirect("/")
+

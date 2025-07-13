@@ -1,6 +1,18 @@
 import json
 import os
 import random
+from datetime import datetime, timedelta
+from difflib import SequenceMatcher
+
+def is_similar(a, b, threshold=0.85):
+    return SequenceMatcher(None, a, b).ratio() >= threshold
+
+def normalize(word):
+    word = word.strip().lower()
+    if word.endswith("s"):
+        word = word[:-1]
+    return word
+
 
 def load_recipes():
     data_path = os.path.join("data", "recipes.json")
@@ -8,32 +20,123 @@ def load_recipes():
         return json.load(f)
 
 def find_random_matching_recipe(user_ingredients, preferred_region=None):
-    user_set = set(i.lower() for i in user_ingredients)
+    user_set = set(normalize(i) for i in user_ingredients if i.strip())
     recipes = load_recipes()
-
     scored_matches = []
 
     for recipe in recipes:
-        recipe_ingredients = set(i.lower() for i in recipe.get("ingredients", []))
-        match_score = len(user_set & recipe_ingredients)
-        
+        recipe_ingredients = set(normalize(i) for i in recipe.get("ingredients", []))
+
+        match_score = sum(
+            1 for u_ing in user_set
+            for r_ing in recipe_ingredients
+            if u_ing == r_ing or is_similar(u_ing, r_ing)
+        )
+
         if match_score == 0:
-            continue  # Skip if no overlap
+            continue
 
         region_bonus = 1 if preferred_region and recipe.get("region") == preferred_region else 0
         total_score = match_score + region_bonus
 
         scored_matches.append((total_score, recipe))
+        print(f"[DEBUG] User: {user_set}, Recipe: {recipe['name']}, Match Score: {match_score}")
 
     if not scored_matches:
         return None
 
-    # Get the highest score
     max_score = max(score for score, _ in scored_matches)
-
-    # Filter recipes with that score
     top_matches = [r for score, r in scored_matches if score == max_score]
-
-    # Randomly select one of them
     return random.choice(top_matches)
+
+
+def find_available_recipes_for_user(user_ingredients, preferred_region, recent_recipes):
+    user_set = set(normalize(i) for i in user_ingredients if i.strip())
+    all_recipes = load_recipes()
+    scored_matches = []
+
+    for recipe in all_recipes:
+        if recipe["name"] in recent_recipes:
+            continue
+
+        recipe_ingredients = set(normalize(i) for i in recipe["ingredients"])
+
+        match_score = sum(
+            1 for u_ing in user_set
+            for r_ing in recipe_ingredients
+            if u_ing == r_ing or is_similar(u_ing, r_ing)
+        )
+
+        if match_score == 0:
+            continue
+
+        region_bonus = 1 if preferred_region and recipe.get("region") == preferred_region else 0
+        total_score = match_score + region_bonus
+
+        scored_matches.append((total_score, recipe))
+        print(f"[DEBUG] User: {user_set}, Recipe: {recipe['name']}, Match Score: {match_score}")
+
+    scored_matches.sort(reverse=True, key=lambda x: x[0])
+    return [r for _, r in scored_matches][:5]
+
+def find_best_matching_recipes(user_ingredients, preferred_region=None):
+    user_set = set(normalize(i) for i in user_ingredients if i.strip())
+    all_recipes = load_recipes()
+    scored_matches = []
+
+    for recipe in all_recipes:
+        recipe_ingredients = set(normalize(i) for i in recipe.get("ingredients", []))
+
+        match_score = sum(
+            1 for u_ing in user_set
+            for r_ing in recipe_ingredients
+            if u_ing == r_ing or is_similar(u_ing, r_ing)
+        )
+
+        if match_score == 0:
+            continue
+
+        region_bonus = 1 if preferred_region and recipe.get("region") == preferred_region else 0
+        total_score = match_score + region_bonus
+
+        scored_matches.append((total_score, recipe))
+        print(f"[DEBUG] User: {user_set}, Recipe: {recipe['name']}, Match Score: {match_score}")
+
+    scored_matches.sort(reverse=True, key=lambda x: x[0])
+    return [r for _, r in scored_matches]
+
+
+def log_meal(mongo, user_id, day, meal_type, recipe_name):
+    week_number = datetime.utcnow().isocalendar()[1]
+    existing = mongo.db.mealplans.find_one({
+        "user_id": user_id,
+        "week_number": week_number
+    })
+
+    if existing:
+        mongo.db.mealplans.update_one(
+            {"_id": existing["_id"]},
+            {"$push": {"meals": {
+                "day": day,
+                "meal_type": meal_type,
+                "recipe_name": recipe_name
+            }}}
+        )
+    else:
+        mongo.db.mealplans.insert_one({
+            "user_id": user_id,
+            "week_number": week_number,
+            "meals": [{
+                "day": day,
+                "meal_type": meal_type,
+                "recipe_name": recipe_name
+            }]
+        })
+
+def get_meals_this_week(mongo, user_id):
+    week_number = datetime.utcnow().isocalendar()[1]
+    return list(mongo.db.mealplans.find({
+        "user_id": user_id,
+        "week_number": week_number
+    }))
 

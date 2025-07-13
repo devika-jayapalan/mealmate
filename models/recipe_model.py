@@ -16,6 +16,7 @@ def normalize(word):
 
 def load_recipes():
     base_dir = os.path.dirname(os.path.abspath(__file__))
+    data_path = os.path.join(base_dir, "..", "data", "recipes.json")
     with open(data_path, "r", encoding="utf-8") as f:
         return json.load(f)
 

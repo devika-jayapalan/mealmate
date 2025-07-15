@@ -1,0 +1,106 @@
+/* Animated background dots */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: black;
+  background-color: #3d075d;
+  overflow: auto;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+body::before {
+  content: "";
+  position: fixed; /* important fix */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-image: 
+    radial-gradient(rgb(255, 155, 214) 2px, transparent 2px),
+    radial-gradient(rgb(243, 245, 141) 2px, transparent 2px),
+    radial-gradient(rgb(164, 249, 200) 2px, transparent 2px);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px, 15px 15px;
+  animation: twinkleDots 5s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes twinkleDots {
+  from {
+    background-position: 0 0, 30px 30px, 15px 15px;
+  }
+  to {
+    background-position: 60px 60px, 90px 90px, 75px 75px;
+  }
+}
+
+/* Ensure your content stays on top */
+.content, h1, h2, a, button, form {
+  position: relative;
+  z-index: 1;
+}
+
+header, h1, h2 {
+    color: #a673d1;
+    text-align: center;
+}
+
+a, button {
+    background-color: #d0255e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+a:hover, button:hover {
+    background-color: #c21951;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.recipe {
+    border: 1px solid #a673d1;
+    background-color: white;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+}
+.recipe ul {
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.recipe li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}

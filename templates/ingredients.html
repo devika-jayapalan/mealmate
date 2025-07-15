@@ -2,53 +2,13 @@
 <html>
 <head>
     <title>Submit Ingredients</title>
-    <style>
-        body { font-family: sans-serif; margin: 20px; }
-        #ingredient-list { margin-top: 10px; padding: 0; }
-        #ingredient-list li { list-style: none; padding: 4px; background: #f0f0f0; margin: 4px 0; }
-        .button { margin-top: 10px; }
-    </style>
-    <script>
-    let ingredients = [];
-
-    function addIngredient() {
-        const input = document.getElementById('ingredient-input');
-        const value = input.value.trim().toLowerCase();
-        if (value && !ingredients.includes(value)) {
-            ingredients.push(value);
-            updateList();
-        }
-        input.value = '';
-    }
-
-    function removeIngredient(index) {
-        ingredients.splice(index, 1);
-        updateList();
-    }
-
-    function updateList() {
-        const ul = document.getElementById('ingredient-list');
-        ul.innerHTML = '';
-        ingredients.forEach((item, index) => {
-            const li = document.createElement('li');
-            li.innerHTML = `${item} <button onclick="removeIngredient(${index})" style="margin-left:10px;">❌</button>`;
-            ul.appendChild(li);
-        });
-    }
-
-    function prepareData() {
-        const hiddenInput = document.getElementById('ingredients-hidden');
-        hiddenInput.value = JSON.stringify(ingredients);
-        return true;
-    }
-    </script>
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h2>Submit Ingredients</h2>
 
     <form method="POST" onsubmit="return prepareData();">
-        <label>Add one ingredient at a time:</label><br>
+        <label>Add one ingredient at a time:</label>
         <input type="text" id="ingredient-input" placeholder="e.g. Onion">
         <button type="button" onclick="addIngredient()">Add</button>
 
@@ -56,14 +16,14 @@
 
         <input type="hidden" name="ingredients" id="ingredients-hidden">
 
-        <label>Select region preference:</label><br>
+        <label>Select region preference:</label>
         <select name="region">
             <option value="">Any</option>
             <option value="NorthIn">North Indian</option>
             <option value="SouthIn">South Indian</option>
-        </select><br><br>
+        </select>
 
-        <button type="submit" class="button">Submit</button>
+        <button type="submit">Submit</button>
     </form>
 
     <script>
@@ -79,22 +39,25 @@
             input.value = '';
         }
 
+        function removeIngredient(index) {
+            ingredients.splice(index, 1);
+            updateList();
+        }
+
         function updateList() {
             const ul = document.getElementById('ingredient-list');
             ul.innerHTML = '';
             ingredients.forEach((item, index) => {
                 const li = document.createElement('li');
-                li.textContent = item;
+                li.innerHTML = `${item} <button onclick="removeIngredient(${index})">❌</button>`;
                 ul.appendChild(li);
             });
         }
 
         function prepareData() {
-            const hiddenInput = document.getElementById('ingredients-hidden');
-            hiddenInput.value = JSON.stringify(ingredients);
+            document.getElementById('ingredients-hidden').value = JSON.stringify(ingredients);
             return true;
         }
     </script>
 </body>
 </html>
-

@@ -2,11 +2,14 @@
     <head>
         <title>Welcome to MealMate!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
+    <div class="content">
         <h1>👩‍🍳 Welcome to MealMate – Your Smart Indian Meal Planner!</h1>
-        <a href="/login" class ="button-class">Login</a>
+        <a href="/login">Let's Start!</a>
         <a href="/logout">Logout</a>
-
+    </div>
     </body>
+
 </html>

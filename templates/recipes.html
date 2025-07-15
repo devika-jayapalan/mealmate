@@ -2,11 +2,7 @@
 <html>
 <head>
     <title>Recipe Suggestion</title>
-    <style>
-        body { font-family: sans-serif; margin: 20px; }
-        .recipe { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
-        .recipe h3 { margin: 0; }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h2>Suggested Recipe</h2>
@@ -24,20 +20,29 @@
                     <li>{{ step }}</li>
                 {% endfor %}
             </ul>
-
+            <div style="text-align: center; margin-top: 20px;">
             <form method="POST" action="/select_recipe">
                 <input type="hidden" name="recipe_name" value="{{ recipe.name }}">
                 <button type="submit">Choose this recipe</button>
             </form>
+            </div>
         </div>
-
     {% else %}
-        <p>No matching recipes found.</p>
+        <p style="color: antiquewhite;">No matching recipes found.</p>
     {% endif %}
 
-    <form action="/next_recipe" method="get">
-        <button type="submit">See Next Recipe</button>
+<div style="text-align: center; margin-top: 20px;">
+    <form action="/next_recipe" method="get" style="display: inline;">
+        <button type="submit" style="font-size: 1rem;">See Next Recipe</button>
     </form>
-    <a href="/">Go back to home</a>
+
+    <div style="margin-top: 10px;">
+        <a href="/" style="font-size: 0.9rem; padding: 8px 16px;">Go back to home</a>
+    </div>
+</div>
+
+
+
 </body>
 </html>
+

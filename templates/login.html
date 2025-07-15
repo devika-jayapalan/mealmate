@@ -2,24 +2,24 @@
 <html>
 <head>
     <title>Login - MealMate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h2>Login</h2>
     <form method="POST" action="/login">
-        <label>Name:</label><br>
-            <input name="name" required><br>
+        <label>Name:</label>
+        <input name="name" required>
 
-        <label>Email:</label><br>
-            <input name="email" type="email" required><br><br>
+        <label>Email:</label>
+        <input name="email" type="email" required>
+
         <button type="submit">Login</button>
     </form>
 
-
     <hr>
-    <p>Or</p>
-    <a href="/ingredients">
-        <button type="button">Continue as Guest</button>
-    </a>
-
+    <div style="text-align:center;">
+        <p>Or</p>
+        <a href="/ingredients">Continue as Guest</a>
+    </div>
 </body>
 </html>

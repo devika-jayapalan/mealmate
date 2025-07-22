@@ -37,5 +37,5 @@ Many Indian women struggle with daily meal planning, especially when juggling wo
 - Devika Jayapalan - [@devika-jayapalan](https://github.com/devika-jayapalan)
 - Mariyam KT - [@mariyamtariq](https://www.github.com/mariyamtariq)
 - Lami Babu - [@LamiBabu](https://github.com/LamiBabu)
-- Fida Fathima CL - [Fida-Fathima-C-L](https://github.com/Fida-Fathima-C-L)
-- Devika Saji - 
+- Fida Fathima CL - [@Fida-Fathima-C-L](https://github.com/Fida-Fathima-C-L)
+- Devika Saji - [@Devika-90](https://github.com/Devika-90)

@@ -8,13 +8,14 @@ recipe_bp = Blueprint('recipe', __name__)
 def suggest_recipes():
     user_id = session.get("user_id")
     region = session.get("region_preference")
+    meal_type = session.get("meal_type_preference") 
     mongo = current_app.mongo
     print(f"[DEBUG] session user_id: {user_id}")
 
     if not user_id:
-        # ✅ Updated Guest flow to use find_best_matching_recipes
+        # Guest flow
         ingredients = session.get("guest_ingredients", [])
-        matching_recipes = find_best_matching_recipes(ingredients, region)
+        matching_recipes = find_best_matching_recipes(ingredients, region, meal_type)  
 
         session['guest_recipe_queue'] = matching_recipes
         session['recipe_pointer'] = 0
@@ -24,11 +25,10 @@ def suggest_recipes():
     else:
         # Logged-in flow
         ingredients = [doc["ingredient"] for doc in mongo.db.ingredients.find({"user_id": user_id})]
-
         past_meals = get_meals_this_week(mongo, user_id)
         used_names = {meal["recipe_name"] for entry in past_meals for meal in entry["meals"]}
 
-        suggestions = find_best_matching_recipes(ingredients, region)
+        suggestions = find_best_matching_recipes(ingredients, region, meal_type)  # ← Include meal_type
         fresh_suggestions = [r for r in suggestions if r["name"] not in used_names]
 
         session['user_recipe_queue'] = fresh_suggestions

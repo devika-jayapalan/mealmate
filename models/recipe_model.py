@@ -20,7 +20,7 @@ def load_recipes():
     with open(data_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def find_random_matching_recipe(user_ingredients, preferred_region=None):
+def find_random_matching_recipe(user_ingredients, preferred_region=None, preferred_meal_type=None):
     user_set = set(normalize(i) for i in user_ingredients if i.strip())
     recipes = load_recipes()
     scored_matches = []
@@ -38,6 +38,8 @@ def find_random_matching_recipe(user_ingredients, preferred_region=None):
             continue
 
         region_bonus = 1 if preferred_region and recipe.get("region") == preferred_region else 0
+        meal_type_bonus = 1 if preferred_meal_type and recipe.get("meal_type") == preferred_meal_type else 0
+        total_score = match_score + region_bonus + meal_type_bonus
         total_score = match_score + region_bonus
 
         scored_matches.append((total_score, recipe))
@@ -51,7 +53,7 @@ def find_random_matching_recipe(user_ingredients, preferred_region=None):
     return random.choice(top_matches)
 
 
-def find_available_recipes_for_user(user_ingredients, preferred_region, recent_recipes):
+def find_available_recipes_for_user(user_ingredients, preferred_region, preferred_meal_type, recent_recipes):
     user_set = set(normalize(i) for i in user_ingredients if i.strip())
     all_recipes = load_recipes()
     scored_matches = []
@@ -72,6 +74,7 @@ def find_available_recipes_for_user(user_ingredients, preferred_region, recent_r
             continue
 
         region_bonus = 1 if preferred_region and recipe.get("region") == preferred_region else 0
+        meal_type_bonus = 1 if preferred_meal_type and recipe.get("meal_type") == preferred_meal_type else 0
         total_score = match_score + region_bonus
 
         scored_matches.append((total_score, recipe))
@@ -80,7 +83,7 @@ def find_available_recipes_for_user(user_ingredients, preferred_region, recent_r
     scored_matches.sort(reverse=True, key=lambda x: x[0])
     return [r for _, r in scored_matches][:5]
 
-def find_best_matching_recipes(user_ingredients, preferred_region=None):
+def find_best_matching_recipes(user_ingredients, preferred_region=None, preferred_meal_type=None):
     user_set = set(normalize(i) for i in user_ingredients if i.strip())
     all_recipes = load_recipes()
     scored_matches = []
@@ -97,14 +100,18 @@ def find_best_matching_recipes(user_ingredients, preferred_region=None):
         if match_score == 0:
             continue
 
-        region_bonus = 1 if preferred_region and recipe.get("region") == preferred_region else 0
-        total_score = match_score + region_bonus
+        region_bonus = 1 if preferred_region and recipe.get("region", "").lower() == preferred_region.lower() else 0
+        meal_type_bonus = 1 if preferred_meal_type and recipe.get("meal_type", "").lower() == preferred_meal_type.lower() else 0
+
+        
+        total_score = match_score + region_bonus + meal_type_bonus  # ✅ fixed
 
         scored_matches.append((total_score, recipe))
-        print(f"[DEBUG] User: {user_set}, Recipe: {recipe['name']}, Match Score: {match_score}")
+        print(f"[DEBUG] User: {user_set}, Recipe: {recipe['name']}, Score: {total_score}")
 
     scored_matches.sort(reverse=True, key=lambda x: x[0])
     return [r for _, r in scored_matches]
+
 
 
 def log_meal(mongo, user_id, day, meal_type, recipe_name):
